@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andev Web</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+     *{
+      
+      box-sizing: border-box;
+      font-family: "Rubik",sans-serif;
+  }
+
+    
+          body {
+              height: 100vh;/*viewport height*/
+              margin: 0;
+              background:  rgb(210, 207, 207);
+              position: relative;
+          }
+          .center-div {
+              width: 400px;
+              height: 200px;
+              background-color: white;
+              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+              position: absolute;
+              top: 50%;
+              left: 50%;
+             /*transform: translate(-50%, -50%);:
+This line shifts the element back by 50% of its own width and height. This effectively centers the element in the viewport. The -50% for the X-axis (horizontal) moves it left by half its width, and the -50% for the Y-axis (vertical) moves it up by half its height.*/
+transform: translate(-50%, -50%); 
+text-align: center;
+              
+              padding: 20px;
+          }
+     a{
+        text-decoration: none;
+     }
+  
+  
+ </style>
+</head>
+<body>
+    <div class="center-div">
+     <h3> choose you sign as  &#63;</h3>
+           
+            <input type="checkbox" id="todo-1">
+            <label style="margin-right:50px; margin-top:20px;" class="todo-text" for="todo-1">
+              Instructor
+            </label>
+
+            <input type="checkbox" id="todo-2">
+            <label style="margin-right:50px; margin-top:20px;" class="todo-text" for="todo-1">
+           student 
+            </label>
+        </div>
+
+
+              
+    <script >
+        const checkbox = document.getElementById('todo-1');
+const check = document.getElementById('todo-2');
+
+if (checkbox) {
+  checkbox.addEventListener('click', () => {
+    if (checkbox.checked) {
+      window.location.href = 'maini.html'; // URL for the new page instructor
+    }
+  });
+}
+
+if (check) {
+  check.addEventListener('click', () => {
+    if (check.checked) {
+      window.location.href = 'mains.html'; // URL for the new page student 
+    }
+  });
+}
+    </script>
+</body>
+</html>
+ 
+                        
+

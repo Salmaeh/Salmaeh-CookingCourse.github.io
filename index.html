@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+    function validateForm(event) {
+        
+        let isValid = true;
+        let Name = document.forms["myForm"]["fname"].value;
+        let email = document.forms["myForm"]["femail"].value;
+        let password = document.forms["myForm"]["fpassword"].value;
+    
+        // Name validation
+        if (Name == "") {
+            alert("Name must be filled out");
+            isValid = false;
+        }
+    
+        // Email validation
+        if (!email.includes("@") || !email.includes(".com")) {
+            alert("Email is invalid");
+            isValid = false;
+        }
+    
+        // Password validation
+        if (password == '') {
+            alert("Password is not valid");
+            isValid = false;
+        } else if (password.length < 6) {
+            alert("Password must be at least 6 characters long");
+            isValid = false;
+            //This is a logical OR operator. 
+            //If the result of password.match(/\d/g) is null (which happens when there are no digits in the password), the expression will evaluate to [] (an empty array) instead of null. This prevents errors when trying to access properties on null.
+//.length:
+
+//This property returns the number of elements in the array returned by match(). If there were no matches, it returns the length of the empty array, which is 0.
+
+        } else if ((password.match(/\d/g) || []).length < 2) {
+            alert("Password must contain at least 2 digits");
+            isValid = false;
+        }
+    
+        // If valid, simulate a successful login
+        if (isValid) {
+            alert('Welcome!');
+            
+        }
+    
+        // Return false to prevent form submission if not valid
+        return isValid; // return the validation result
+    }
+</script>
+<style>
+ /* Apply basic styles to the body */
+ body {
+     font-family: Arial, sans-serif;
+     background-color: #f4f4f4;
+     margin: 0;
+     padding: 0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 100vh;
+    /* To summarize, align-items: center; is a CSS Flexbox property that vertically centers the flex items within the flex container, making it useful for creating layouts where you want elements to be aligned in the middle of the available space. In your case, it helps center any content within the body of the page, both horizontally and vertically, due to the combination with justify-content: center;.
+*/}
+ 
+ /* Style the form container */
+ form {
+     background-color: #fff;
+     padding: 20px;
+     border-radius: 8px;
+    /**/
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /*6px (blur-radius):
+
+This is the blur radius of the shadow. A value of 6px means that the shadow will have a blur effect applied, making its edges softer and more diffused. The higher the value, the more blurred the shadow will appear. If this value were 0, the shadow would have sharp edges.*/
+/*0 offset x 4 offset y*/
+     width: 300px;
+ }
+ 
+ /* Style the input fields */
+ input[type="text"], input[type="submit"] {/*document.querySelectorAll('input[type="text"], input[type="submit"]');
+ This will return a NodeList containing all text input fields and submit buttons in the document. You can then iterate over this NodeList or manipulate the elements as needed.*/
+     width: 100%;
+     padding: 10px;
+     margin: 10px 0;/**/
+     border: 1px solid #ccc;
+     border-radius: 4px;
+     font-size: 14px;
+ }
+ 
+ /* Style the submit button */
+ input[type="submit"] {
+     background-color: #007bff;
+     color: white;
+     border: none;
+     cursor: pointer;
+     
+ }
+ 
+ 
+ 
+ /* Add some spacing and font styling for labels */
+ p {
+     margin: 10px 0;/**/
+     font-weight: bold;
+     color: #333;
+ }
+ 
+ /* Center the form title and make it bold */
+ b {
+     font-size: 16px;
+     color: #555;
+ }
+ 
+ /* Ensure form content looks aligned and clean */
+ div {
+     text-align: center;
+ }
+ </style>
+ 
+</head>
+<body>
+
+
+
+<form name="myForm" action="choose.html" onsubmit="return validateForm()" >
+  <p><b>Name: <b></p>
+  <input type="text" name="fname">
+  <p><b>email: <b></p>
+  <input type="text" name="femail">
+  <p><b>Password: <b></p>
+   <input type="text" name="fpassword">
+  <div>
+  <input type="submit" value="next"></div>
+</form>
+
+</body>
+</html>
