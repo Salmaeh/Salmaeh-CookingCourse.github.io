@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Our Service</h1>
+        <p id="payment-status">Status: Not Paid</p>
+        <button id="pay-now">Pay Now</button>
+    </div>
+    <script>
+        // Check for payment status in localStorage
+        const paymentStatus = localStorage.getItem('paymentStatus');
+        if (paymentStatus === 'paid') {
+            document.getElementById('payment-status').textContent = 'Status: Paid';
+            document.getElementById('pay-now').textContent = 'Payment Completed';
+            document.getElementById('pay-now').disabled = true;
+        }
+
+        // Redirect to payment page
+        document.getElementById('pay-now').addEventListener('click', () => {
+            window.location.href = 'payment.html';
+        });
+    </script>
+</body>
+</html>
